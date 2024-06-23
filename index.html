@@ -1,12 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: var(--primary-color);
+        }
+
+        :root {
+            --primary-color: rgb(0, 0, 0);
+            --secondary-color: white;
+            --third-color: #fac031;
+            --fourth-color: rgba(0, 0, 0, 0.719);
+            --bg-image: url("images/2.png");
+            --box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            --gradient1: rgb(0, 0, 0);
+            --gradient2: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.9829457364341085) 0%, rgba(0, 0, 0, 1) 0%, rgba(55, 53, 53, 0.9288165949973739) 50%, rgba(0, 0, 0, 1) 100%);
+            --gradient3: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.9829457364341085) 0%, rgba(0, 0, 0, 1) 0%, rgba(55, 53, 53, 0.9288165949973739) 50%, rgba(0, 0, 0, 1) 100%);
+            --gradient4: linear-gradient(90deg, rgba(0, 0, 0, 0.9829457364341085) 0%, rgba(0, 0, 0, 1) 0%, rgba(55, 53, 53, 0.9288165949973739) 50%, rgba(0, 0, 0, 1) 100%);
+            --filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+        }
+
+        .light_mode {
+            --primary-color: white;
+            --secondary-color: black;
+            --third-color: #fac031;
+            --fourth-color: rgba(255, 255, 255, 0.795);
+            --bg-image: url("images/light_mode.png");
+            --box-shadow: 0 0 10px rgb(112, 112, 112);
+            --gradient1: white;
+            --gradient2: white;
+            --gradient3: white;
+            --gradient4: white;
+            --gradient5: white;
+            --filter: white;
+        }
+
+        .home {
+            width: 100%;
+            height: 730px;
+            background: var(--bg-image);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* navigation bar styles start */
+
+        .home nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            background: var(--primary-color);
+            box-shadow: var(--box-shadow);
+            z-index: 100;
+            height: 50px;
+        }
+
+        .home nav .logo img {
+            width: 100px;
+            cursor: pointer;
+            margin: 7px 0;
+        }
+
+        .mood {
+            width: 100%;
+            height: 30px;
+            cursor: pointer;
+            margin: 7px 0;
+        }
+
+        .home nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .home nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .home nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 17px;
+            transition: 0.1s;
+        }
+
+        #login {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 17px;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+
+        /* #session_name {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 17px;
+            transition: 0.1s;
+            cursor: pointer;
+        } */
+
+        .home nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #fac031;
+            display: block;
+            transition: 0.2s linear;
+        }
+
+        .home nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .home nav ul li a:hover {
+            color: #fac031;
+        }
+
+        .home nav .icon i {
+            font-size: 18px;
+            color: #ffffff;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .home nav .icon i:hover {
+            color: #fac031;
+        }
+
+        /* navigation bar styles end */
+
+        /* home section button style */
+
+        .home .main {
+            display: grid;
+            grid-template-rows: 350px 200px 170px;
+        }
+
+        .home .main_text {
+            display: flex;
+            align-items: center;
+            line-height: 100px;
+            padding-left: 50px;
+        }
+
+        .home .main .main_text h1 {
+            font-size: 60px;
+            color: var(--secondary-color);
+        }
+
+        .home .main .main_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 70px;
+        }
+
+        .home p {
+
+            padding-left: 50px;
+            display: flex;
+            align-items: center;
+            line-height: 22px;
+            color: var(--secondary-color);
+            font-weight: 600px;
+            font-size: 20px;
+        }
+
+        .home .main_btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+        }
+
+        .home .main_btn button {
+            padding: 15px 50px;
+            border: none;
+            background-color: #fac031;
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        .home .main_btn a {
+            color: var(--secondary-color);
+            margin-right: 5px;
+            text-decoration: none;
+        }
+
+        /* about section styles */
+        .about {
+            width: 100%;
+            padding-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 2px solid #fac031;
+
+        }
+        
+        .about_img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about img {
+            width: 500px;
+        }
+
+        .about_text {
+            padding: 50px;
+        }
+
+        .about_text h1 {
+            font-size: 60px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .about_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 70px;
+        }
+
+        .about p {
+            margin-top: 50px;
+            line-height: 22px;
+            color: var(--secondary-color);
+            font-weight: 600px;
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- home section -->
     <section class="home">
+
         <nav>
             <div class="logo">
                 <img src="images/logo.png">
@@ -21,10 +285,12 @@
                 <li><a href="#Order">Order</a></li>
             </ul>
 
-            <ul><li id='login'>LOGIN</li>
+            <ul>
+                <li id='login'>LOGIN</li>
                 <li><img src="images/sun.png" alt="" class="mood"></li>
             </ul>
         </nav>
+
         <div class="main" id="home">
 
             <div class="main_text">
@@ -38,12 +304,26 @@
                 elit. Cumque facilis, quaerat cupiditate nulla quibusdam quo sunt esse tempore inventore vel
                 voluptate, amet laudantium adipisci veniam nihil quam molestiae omnis mollitia.
             </p>
-            <!-- <div class="main_iamge">
-            <img src="images/main_img.png" alt="">
-        </div> -->
             <div class="main_btn">
                 <button><a href="">Order Now</a></button>
             </div>
     </section>
+
+    <!-- home section end -->
+
+    <!-- about section start -->
+    <section class="about" id="about">
+        <div class="about_img">
+            <img src="images/Food-Plate.png" alt="">
+        </div>
+        <div class="about_text">
+            <h1>About<span>Us</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius in, soluta quam aliquam iure repudiandae
+                corporis sequi impedit assumenda laborum, asperiores voluptas nihil obcaecati labore repellendus
+                quibusdam pariatur? Incidunt, distinctio.</p>
+        </div>
+    </section>
+    <!-- about section end -->
 </body>
+
 </html>
