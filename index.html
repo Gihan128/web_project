@@ -165,19 +165,19 @@
             grid-template-rows: 350px 200px 170px;
         }
 
-        .home .main_text {
+        .main_text {
             display: flex;
             align-items: center;
             line-height: 100px;
             padding-left: 50px;
         }
 
-        .home .main .main_text h1 {
+        .main_text h1 {
             font-size: 60px;
             color: var(--secondary-color);
         }
 
-        .home .main .main_text h1 span {
+        .main_text h1 span {
             margin-left: 15px;
             color: #fac031;
             font-family: mv boli;
@@ -283,7 +283,6 @@
             line-height: 22px;
             font-size: 70px;
         }
-
         .menu_btn {
             padding: 10px 30px;
             border: none;
@@ -470,7 +469,20 @@
             padding-bottom: 30px;
             border-top: 2px solid #fac031;
         }
+        .review_text h1 {
+            font-size: 60px;
+            color: var(--secondary-color);
+            text-align: center;
+            padding-bottom: 50px;
+        }
 
+        .review_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 70px;
+        }
         .review_grid_wrapper {
             width: 100%;
             height: 510px;
@@ -540,6 +552,243 @@
             border-top: 2px solid #fac031;
             
         }
+
+    /* responsive */
+    @media screen and (max-width:980px){
+        
+        /* about section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            'about_text'
+            'about_img'
+            ;
+        }
+        .about_img {
+            grid-area: about_img;
+        }
+        .about_text {
+            grid-area: about_text;
+        }
+
+        /* gallery section */
+
+        .gallery_grid_wrapper{
+            width: 100%;
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000000;
+            /* background: var(--gradient1);
+            background: var(--gradient2);
+            background: var(--gradient3);
+            background: var(--gradient4);
+            filter: var(--filter); */
+            
+        }
+        .gallery_grid_box{
+            width: 400px;
+            height: 800px;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 200px 200px;
+            grid-template-rows: 200px 200px 200px 200px;
+            grid-column-gap: 2px;
+            scrollbar-width: none;
+            grid-template-areas: 
+            'g1 g3'
+            'g2 g2'
+            'g2 g2'
+            'g4 g5'
+            ;
+            
+        }
+        .g1{
+            grid-area: g1;
+            width: 100%;
+        }
+        .g1 img{
+            width: 100%;
+        }
+        .g2{
+            grid-area: g2;
+            width: 100%;
+        }
+        .g2 img{
+            width: 100%;
+        }
+        .g3{
+            grid-area: g3;
+            width: 100%;
+        }
+        .g3 img{
+            width: 100%;
+        }
+        .g4{
+            grid-area: g4;
+            width: 100%;
+        }
+        .g4 img{
+            width: 100%;
+        }
+        .g5{
+            grid-area: g5;
+            width: 100%;
+        }
+        .g5 img{
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width:580px){
+
+        /* about section */
+        .about img {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width:480px){
+
+         /* home section */
+         .main p{
+            font-size: 15px;
+        }
+        .main_text h1 {
+            font-size: 40px;
+            color: var(--secondary-color);
+            line-height: 52px;
+            text-align: center;
+        }
+
+        .main_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 50px;
+        } 
+
+        /* about section */
+        .about img {
+            width: 250px;
+        }
+        .about_text h1 {
+            font-size: 40px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        .about_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 50px;
+        } 
+
+        /* menu section */
+        .menu_text h1 {
+            font-size: 40px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        .menu_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 50px;
+        } 
+
+        /* gallery section */
+        .gallery_text h1 {
+            font-size: 40px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        .gallery_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 50px;
+        }
+        .gallery_grid_wrapper{
+            width: 100%;
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000000;
+        }
+        .gallery_grid_box{
+            width: 200px;
+            height: 800px;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 200px;
+            grid-template-rows: 200px 200px 200px 200px;
+            grid-column-gap: 2px;
+            scrollbar-width: none;
+            grid-template-areas: 
+            'g1'
+            'g2'
+            'g3'
+            'g4';
+        }
+        .g1{
+            grid-area: g1;
+            width: 100%;
+        }
+        .g1 img{
+            width: 100%;
+        }
+        .g2{
+            grid-area: g2;
+            width: 100%;
+        }
+        .g2 img{
+            width: 100%;
+        }
+        .g3{
+            grid-area: g3;
+            width: 100%;
+        }
+        .g3 img{
+            width: 100%;
+        }
+        .g4{
+            grid-area: g4;
+            width: 100%;
+        }
+        .g4 img{
+            width: 100%;
+        }
+        .g5{
+            grid-area: g5;
+            width: 100%;
+        }
+        .g5 img{
+            width: 100%;
+        } 
+
+        /* review section */
+        .review_text h1 {
+            font-size: 40px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        .review_text h1 span {
+            margin-left: 15px;
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 50px;
+        } 
+    }
+
+
 
     </style>
 </head>
@@ -637,7 +886,7 @@
 
                 <form action='details.php' method='post'>
                     <div class='home_menu_item'>
-                        <img src='images/cake.jpg' alt=''>
+                        <img src='images/pasta.jpg' alt=''>
                         <p class='home_menu_product_name'>Product</p>
                         <p class='home_menu_product_description'>100</p>
                         <input type='hidden' name='product_id' value='$data[id]'>
@@ -738,7 +987,7 @@
      
      <section class="review">
 
-        <div class="menu_text">
+        <div class="review_text">
             <h1>Our<span>Customers</span></h1>
         </div>
 
