@@ -266,6 +266,8 @@
 
         /* menu section styles */
         .menu{
+            padding-top: 30px;
+            padding-bottom: 30px;
             border-top: 2px solid #fac031;
         }
         .menu_text h1 {
@@ -379,12 +381,15 @@
 
         /* gallery section styles */
         .gallery{
+            padding-top: 30px;
+            padding-bottom: 30px;
             border-top: 2px solid #fac031;
         }
         .gallery_text h1 {
             font-size: 60px;
             color: var(--secondary-color);
             text-align: center;
+            padding-bottom: 50px;
         }
 
         .gallery_text h1 span {
@@ -395,8 +400,74 @@
             font-size: 70px;
         }
 
+        .gallery_grid_wrapper{
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000000;
+            /* background: var(--gradient1);
+            background: var(--gradient2);
+            background: var(--gradient3);
+            background: var(--gradient4);
+            filter: var(--filter); */
+            
+        }
+        .gallery_grid_box{
+            width: 800px;
+            height: 400px;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 200px 200px 200px 200px;
+            grid-template-rows: 200px 200px;
+            grid-column-gap: 2px;
+            scrollbar-width: none;
+            grid-template-areas: 
+            'g1 g2 g2 g3'
+            'g4 g2 g2 g5'
+            ;
+            
+        }
+        .g1{
+            grid-area: g1;
+            width: 100%;
+        }
+        .g1 img{
+            width: 100%;
+        }
+        .g2{
+            grid-area: g2;
+            width: 100%;
+        }
+        .g2 img{
+            width: 100%;
+        }
+        .g3{
+            grid-area: g3;
+            width: 100%;
+        }
+        .g3 img{
+            width: 100%;
+        }
+        .g4{
+            grid-area: g4;
+            width: 100%;
+        }
+        .g4 img{
+            width: 100%;
+        }
+        .g5{
+            grid-area: g5;
+            width: 100%;
+        }
+        .g5 img{
+            width: 100%;
+        }
         /* review section styles */
         .review{
+            padding-top: 30px;
+            padding-bottom: 30px;
             border-top: 2px solid #fac031;
         }
 
@@ -407,11 +478,12 @@
             align-items: center;
             justify-content: center;
             background-color: #000000;
-            background: var(--gradient1);
+            /* background: var(--gradient1);
             background: var(--gradient2);
             background: var(--gradient3);
             background: var(--gradient4);
-            filter: var(--filter);
+            filter: var(--filter); */
+            
         }
 
         .review_grid_box {
@@ -420,10 +492,12 @@
             overflow-x: scroll;
             overflow-y: hidden;
             display: grid;
-            grid-template-columns: 350px 350px 350px 350px 350px 350px;
+            grid-template-columns: 350px 350px 350px 350px 350px;
             grid-template-rows: 500px;
             grid-column-gap: 15px;
             scrollbar-width: none;
+            padding-left: 10px;
+            
         }
 
         .review_grid_box form {
@@ -438,7 +512,7 @@
         .review_item {
             height: 400px;
             width: 100%;
-            background-color: var(--primary-color);
+            background-color:rgba(0, 0, 0, 0.466);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -449,17 +523,22 @@
             gap: 20px;
         }
         .review img{
-            width: 150px;
+            width: 100px;
             border-radius: 50%;
             position: relative;
             top: 50px;
             
         }
+
+        /* footer section styles */
         .footer{
             margin-top: 50px;
             width: 100%;
             height: 200px;
-            background-color: #fac031;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-top: 2px solid #fac031;
+            
         }
 
     </style>
@@ -641,13 +720,22 @@
             <h1>Our<span>Gallery</span></h1>
         </div>
 
-        
-
+        <div class="gallery_grid_wrapper">
+            <div class="gallery_grid_box">
+                <img src="images/g1.jpg" alt="" class="g1">
+                <img src="images/g2.jpg" alt="" class="g2">
+                <img src="images/g3.jpg" alt="" class="g3">
+                <img src="images/g4.jpg" alt="" class="g4">
+                <img src="images/g5.jpg" alt="" class="g5">
+            </div>
+        </div>
+    
     </section>
 
     <!-- gallery section end -->
 
     <!-- review section start -->
+     
      <section class="review">
 
         <div class="menu_text">
@@ -729,6 +817,7 @@
         </div>
 
      </section>
+
     <!-- review section end -->
 
     <!-- footer section start -->
