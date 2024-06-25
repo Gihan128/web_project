@@ -1121,7 +1121,7 @@ if (isset($_POST["login"])) {
             if($result){
                 while($loop<6){
                     $data = mysqli_fetch_assoc($result);
-                    echo " <form action='' method='post'>
+                    echo " <form action='product.php' method='post'>
                     <div class='home_menu_item'>
                         <img src='images/$data[image]' alt=''>
                         <p class='home_menu_product_name'>$data[name]</p>
