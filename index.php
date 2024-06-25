@@ -1,4 +1,49 @@
-<?php?>
+<?php
+session_start();
+?>
+
+<?php
+require_once ("include/connection.php");
+if (isset($_POST["login"])) {
+    $errors = array();
+    if (empty($_POST["uname"]) && strlen(trim($_POST["uname"])) < 1) {
+        $errors[] = "Invalid";
+    }
+    if (empty($_POST["pwd"]) && strlen(trim($_POST["pwd"])) < 1) {
+        $errors[] = "Invalid";
+    }
+    if (empty($errors)) {
+        // Start the session
+       
+
+        // Set session variables
+
+        $user_name = mysqli_real_escape_string($connection, $_POST["uname"]);
+        $user_pwd = mysqli_real_escape_string($connection, $_POST["pwd"]);
+
+        $query = "SELECT * FROM user WHERE email = '$user_name' AND password = '$user_pwd'";
+        $result = mysqli_query($connection, $query);
+
+        if ($result) {
+            if (mysqli_num_rows($result) == 1) {
+
+
+                $data = mysqli_fetch_assoc($result);
+                $_SESSION["username"] = $data['first_name'];
+                // header("Location:index.php?user_id=$user");
+            
+            } else {
+                header("Location:loginerror.php?");
+            }
+        } else {
+        }
+    } else {
+        // header("Location:index.php?error=1");
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -195,14 +240,14 @@
 
         }
 
-        /* #session_name {
+        #session_name {
             text-decoration: none;
             color: var(--secondary-color);
             font-weight: 500;
             font-size: 17px;
             transition: 0.1s;
             cursor: pointer;
-        } */
+        } 
 
         /* .home nav .icon i {
             font-size: 18px;
@@ -944,12 +989,12 @@
 <body>
 
     <div class="login_wrapper" id="login_wrapper">
-        <form action="" method="post">
+        <form action="index.php" method="post">
             <h1>LOGIN</h1>
             <label for="uname">User name / Password</label>
-            <input type="text" name="uname" id="uname">
+            <input type="text" name="uname" id="">
             <label for="upwd">Password</label>
-            <input type="password" name="pwd" id="upwd">
+            <input type="password" name="pwd" id="">
             <a href="">Create new account</a>
             <button type="submit" name="login">LOGIN</button>
         </form>
@@ -975,7 +1020,6 @@
             </ul>
 
             <ul>
-                <li>LOGIN</li>
                 <li><img src="images/sun.png" alt="" class="mood menu_list"></li>
                 <li><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
@@ -1001,7 +1045,13 @@
             </ul>
 
             <ul>
-                <li id="top_login">LOGIN</li>
+            <?php
+                if (empty($_SESSION["username"])) {
+                    echo "<li id='top_login'>LOGIN</li>";
+                } else {
+                    echo "<li id='session_name'>$_SESSION[username]</li>";
+                }
+                ?>
                 <li><img src="images/sun.png" alt="" class="mood login_section"></li>
                 <li><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
