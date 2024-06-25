@@ -1,3 +1,4 @@
+<?php?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,13 +111,14 @@
             transition: 0.1s;
         }
 
-        .topbar #login {
+        #top_login {
             text-decoration: none;
             color: var(--secondary-color);
             font-weight: 500;
             font-size: 17px;
             transition: 0.1s;
             cursor: pointer;
+            color:red;
         }
 
         nav ul li a::after {
@@ -183,15 +185,6 @@
             font-weight: 500;
             font-size: 17px;
             transition: 0.1s;
-        }
-
-        .sidebar #login {
-            text-decoration: none;
-            color: var(--secondary-color);
-            font-weight: 500;
-            font-size: 17px;
-            transition: 0.1s;
-            cursor: pointer;
         }
 
         #close_btn {
@@ -378,6 +371,7 @@
             background: var(--gradient3);
             background: var(--gradient4);
             filter: var(--filter);
+            margin-top:30px;
         }
 
         .menu_grid_box {
@@ -952,10 +946,10 @@
     <div class="login_wrapper" id="login_wrapper">
         <form action="" method="post">
             <h1>LOGIN</h1>
-            <label for="">User name / Password</label>
-            <input type="text" name="uname" id="">
-            <label for="">Password</label>
-            <input type="password" name="pwd" id="">
+            <label for="uname">User name / Password</label>
+            <input type="text" name="uname" id="uname">
+            <label for="upwd">Password</label>
+            <input type="password" name="pwd" id="upwd">
             <a href="">Create new account</a>
             <button type="submit" name="login">LOGIN</button>
         </form>
@@ -981,7 +975,7 @@
             </ul>
 
             <ul>
-                <li id="login">LOGIN</li>
+                <li>LOGIN</li>
                 <li><img src="images/sun.png" alt="" class="mood menu_list"></li>
                 <li><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
@@ -1007,7 +1001,7 @@
             </ul>
 
             <ul>
-                <li id='login'><a class="login_section">LOGIN</a></li>
+                <li id="top_login">LOGIN</li>
                 <li><img src="images/sun.png" alt="" class="mood login_section"></li>
                 <li><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
@@ -1274,21 +1268,28 @@
     <section class="footer">
 
     </section>
+</body>
 
     <script>
 
-        let count = 0;
-        let close_btn = document.getElementById("close_btn");
-        let sidebar = document.querySelector(".sidebar");
-        let menu_btn = document.getElementById("menu_btn");
+var login_count = 0;
+var top_login = document.getElementById("top_login");
+var login_form = document.querySelector(".login_wrapper");
+top_login.addEventListener('click',function(){
+    
+    if(login_count==0){
+        login_form.style.display = "flex";
+        login_count = 1;
+    }
+    else{
+        login_form.style.display = "none";
+        login_count = 0;
+    }
 
-        close_btn.addEventListener("click",function(){
-            sidebar.style.display="none";
-        })
-        menu_btn.addEventListener("click",function(){
-            sidebar.style.display="flex";
-        })
+    console.log("hiii");
+})
+
     </script>
-</body>
+
 
 </html>
