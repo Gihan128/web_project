@@ -33,7 +33,7 @@ if (isset($_POST["login"])) {
                 // header("Location:index.php?user_id=$user");
             
             } else {
-                header("Location:loginerror.php?");
+                header("Location:invalid_login.php?");
             }
         } else {
         }
@@ -1114,11 +1114,18 @@ if (isset($_POST["login"])) {
         <div class="menu_grid_wrapper">
             <div class="menu_grid_box">
 
-                <form action='details.php' method='post'>
+            <?php
+            $query = "SELECT*FROM add_image";
+            $result = mysqli_query($connection,$query);
+            $loop = 0;
+            if($result){
+                while($loop<6){
+                    $data = mysqli_fetch_assoc($result);
+                    echo " <form action='' method='post'>
                     <div class='home_menu_item'>
-                        <img src='images/cake.jpg' alt=''>
-                        <p class='home_menu_product_name'>Product</p>
-                        <p class='home_menu_product_description'>100</p>
+                        <img src='images/$data[image]' alt=''>
+                        <p class='home_menu_product_name'>$data[name]</p>
+                        <p class='home_menu_product_description'>$data[price]</p>
                         <input type='hidden' name='product_id' value='$data[id]'>
 
                         <div class='home_menu_product'>
@@ -1127,77 +1134,11 @@ if (isset($_POST["login"])) {
                         </div>
                     </div>
                 </form>
-
-                <form action='details.php' method='post'>
-                    <div class='home_menu_item'>
-                        <img src='images/pasta.jpg' alt=''>
-                        <p class='home_menu_product_name'>Product</p>
-                        <p class='home_menu_product_description'>100</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        <div class='home_menu_product'>
-                            <button class='home_menu_product_btn' type='submit' name='order_btn'>OrderNow</button>
-                            <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        </div>
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <div class='home_menu_item'>
-                        <img src='images/cake.jpg' alt=''>
-                        <p class='home_menu_product_name'>Product</p>
-                        <p class='home_menu_product_description'>100</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        <div class='home_menu_product'>
-                            <button class='home_menu_product_btn' type='submit' name='order_btn'>OrderNow</button>
-                            <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        </div>
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <div class='home_menu_item'>
-                        <img src='images/cake.jpg' alt=''>
-                        <p class='home_menu_product_name'>Product</p>
-                        <p class='home_menu_product_description'>100</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        <div class='home_menu_product'>
-                            <button class='home_menu_product_btn' type='submit' name='order_btn'>OrderNow</button>
-                            <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        </div>
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <div class='home_menu_item'>
-                        <img src='images/cake.jpg' alt=''>
-                        <p class='home_menu_product_name'>Product</p>
-                        <p class='home_menu_product_description'>100</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        <div class='home_menu_product'>
-                            <button class='home_menu_product_btn' type='submit' name='order_btn'>OrderNow</button>
-                            <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        </div>
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <div class='home_menu_item'>
-                        <img src='images/cake.jpg' alt=''>
-                        <p class='home_menu_product_name'>Product</p>
-                        <p class='home_menu_product_description'>100</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        <div class='home_menu_product'>
-                            <button class='home_menu_product_btn' type='submit' name='order_btn'>OrderNow</button>
-                            <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        </div>
-                    </div>
-                </form>
-
+                ";
+                $loop++;
+                }
+            }
+            ?>
             </div>
         </div>
 
