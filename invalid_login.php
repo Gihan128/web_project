@@ -33,7 +33,7 @@ if (isset($_POST["login"])) {
                 // header("Location:index.php?user_id=$user");
             
             } else {
-                header("Location:invalid_login.php?");
+                header("Location:loginerror.php?");
             }
         } else {
         }
@@ -664,11 +664,11 @@ if (isset($_POST["login"])) {
             width: 100vw;
             height: 100vh;
             position: fixed;
-            display:none;
+            display:flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            background: transparent;
+            background: black;
 
         }
 
@@ -695,7 +695,9 @@ if (isset($_POST["login"])) {
             text-align: center;
 
         }
-
+        .login_wrapper form p{
+            color: red;
+        }
         .login_wrapper form label {
             padding-bottom: 10px;
             padding-top: 10px;
@@ -991,6 +993,7 @@ if (isset($_POST["login"])) {
     <div class="login_wrapper" id="login_wrapper">
         <form action="index.php" method="post">
             <h1>LOGIN</h1>
+            <p>* Invalid User name / Password</p>
             <label for="uname">User name / Password</label>
             <input type="text" name="uname" id="">
             <label for="upwd">Password</label>
@@ -1045,13 +1048,6 @@ if (isset($_POST["login"])) {
             </ul>
 
             <ul>
-            <?php
-                if (empty($_SESSION["username"])) {
-                    echo "<li id='top_login'>LOGIN</li>";
-                } else {
-                    echo "<li id='session_name'>$_SESSION[username]</li>";
-                }
-                ?>
                 <li><img src="images/sun.png" alt="" class="mood login_section"></li>
                 <li><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#e8eaed">
@@ -1077,200 +1073,12 @@ if (isset($_POST["login"])) {
                 voluptate, amet laudantium adipisci veniam nihil quam molestiae omnis mollitia.
             </p>
             <div class="main_btn">
-<<<<<<< HEAD
-                <button><a href="product.php">Order Now</a></button>
-=======
                 <button><a href="">Order Now</a></button>
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
             </div>
     </section>
 
     <!-- home section end -->
 
-    <!-- about section start -->
-
-    <section class="about" id="about">
-        <div class="about_img">
-            <img src="images/Food-Plate.png" alt="">
-        </div>
-        <div class="about_text">
-            <h1>About<span>Us</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius in, soluta quam aliquam iure repudiandae
-                corporis sequi impedit assumenda laborum, asperiores voluptas nihil obcaecati labore repellendus
-                quibusdam pariatur? Incidunt, distinctio.</p>
-        </div>
-    </section>
-
-    <!-- about section end -->
-
-    <!-- menu section start -->
-
-    <section class="menu" id="menu">
-
-        <div class="menu_text">
-            <h1>Our<span>Menu</span></h1>
-        </div>
-
-        <div class="menu_button">
-<<<<<<< HEAD
-            <button class='menu_btn'><a href='product.php'>Shop More</a></button>
-=======
-            <button class='menu_btn'><a href='index.php'>Shop More</a></button>
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
-        </div>
-
-        <div class="menu_grid_wrapper">
-            <div class="menu_grid_box">
-
-            <?php
-            $query = "SELECT*FROM add_image";
-            $result = mysqli_query($connection,$query);
-<<<<<<< HEAD
-            if($result){
-                while($data = mysqli_fetch_assoc($result)){
-                    
-=======
-            $loop = 0;
-            if($result){
-                while($loop<6){
-                    $data = mysqli_fetch_assoc($result);
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
-                    echo " <form action='product.php' method='post'>
-                    <div class='home_menu_item'>
-                        <img src='images/$data[image]' alt=''>
-                        <p class='home_menu_product_name'>$data[name]</p>
-                        <p class='home_menu_product_description'>$data[price]</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        <div class='home_menu_product'>
-                            <button class='home_menu_product_btn' type='submit' name='order_btn'>OrderNow</button>
-                            <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        </div>
-                    </div>
-                </form>
-                ";
-<<<<<<< HEAD
-                
-=======
-                $loop++;
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
-                }
-            }
-            ?>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- menu section end -->
-
-    <!-- gallery section start -->
-     
-    <section class="gallery">
-
-        <div class="gallery_text">
-            <h1>Our<span>Gallery</span></h1>
-        </div>
-
-        <div class="gallery_grid_wrapper">
-            <div class="gallery_grid_box">
-                <img src="images/g1.jpg" alt="" class="g1">
-                <img src="images/g2.jpg" alt="" class="g2">
-                <img src="images/g3.jpg" alt="" class="g3">
-                <img src="images/g4.jpg" alt="" class="g4">
-                <img src="images/g5.jpg" alt="" class="g5">
-            </div>
-        </div>
-    
-    </section>
-
-    <!-- gallery section end -->
-
-    <!-- review section start -->
-     
-     <section class="review">
-
-        <div class="review_text">
-            <h1>Our<span>Customers</span></h1>
-        </div>
-
-        <div class="review_grid_wrapper">
-            <div class="review_grid_box">
-                <form action='details.php' method='post'>
-                    <img src='images/review_1.png' alt=''>
-                    <div class='review_item'>
-                        
-                        <p class='customer_name'>john</p>
-                        <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        
-                        <p class='customer_feedback'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium saepe quae, est hic, perferendis amet id optio, magnam possimus repudiandae nulla itaque perspiciatis expedita porro aliquid. Earum nisi pariatur fugiat!</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <img src='images/review_2.png' alt=''>
-                    <div class='review_item'>
-                        
-                        <p class='customer_name'>john</p>
-                        <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        
-                        <p class='customer_feedback'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium saepe quae, est hic, perferendis amet id optio, magnam possimus repudiandae nulla itaque perspiciatis expedita porro aliquid. Earum nisi pariatur fugiat!</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <img src='images/review_3.png' alt=''>
-                    <div class='review_item'>
-                        
-                        <p class='customer_name'>john</p>
-                        <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        
-                        <p class='customer_feedback'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium saepe quae, est hic, perferendis amet id optio, magnam possimus repudiandae nulla itaque perspiciatis expedita porro aliquid. Earum nisi pariatur fugiat!</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <img src='images/review_4.png' alt=''>
-                    <div class='review_item'>
-                        
-                        <p class='customer_name'>john</p>
-                        <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        
-                        <p class='customer_feedback'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium saepe quae, est hic, perferendis amet id optio, magnam possimus repudiandae nulla itaque perspiciatis expedita porro aliquid. Earum nisi pariatur fugiat!</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        
-                    </div>
-                </form>
-
-                <form action='details.php' method='post'>
-                    <img src='images/review_1.png' alt=''>
-                    <div class='review_item'>
-                        
-                        <p class='customer_name'>john</p>
-                        <h2 class='home_menu_product_rating'>★★★★★</h2>
-                        
-                        <p class='customer_feedback'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium saepe quae, est hic, perferendis amet id optio, magnam possimus repudiandae nulla itaque perspiciatis expedita porro aliquid. Earum nisi pariatur fugiat!</p>
-                        <input type='hidden' name='product_id' value='$data[id]'>
-
-                        
-                    </div>
-                </form>
-            </div>
-        </div>
-
-     </section>
-
-    <!-- review section end -->
 
     <!-- footer section start -->
 
@@ -1278,27 +1086,5 @@ if (isset($_POST["login"])) {
 
     </section>
 </body>
-
-    <script>
-
-var login_count = 0;
-var top_login = document.getElementById("top_login");
-var login_form = document.querySelector(".login_wrapper");
-top_login.addEventListener('click',function(){
-    
-    if(login_count==0){
-        login_form.style.display = "flex";
-        login_count = 1;
-    }
-    else{
-        login_form.style.display = "none";
-        login_count = 0;
-    }
-
-    console.log("hiii");
-})
-
-    </script>
-
 
 </html>
