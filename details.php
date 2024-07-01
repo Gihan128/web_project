@@ -1,10 +1,18 @@
 <?php
+// session_start();
 require_once("include/connection.php");
 
+if (isset($_SESSION["user_id"])) {
+
+    // $user_id = $_SESSION["user_id"];
+    // echo $user_id;
+}
 if(isset($_POST["order_btn"])){
     $product_id = $_POST['product_id'];
     
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -461,10 +469,11 @@ if(isset($_POST["order_btn"])){
     <?php
     
 
-    $query = "SELECT*FROM add_image WHERE id='$product_id'";
+    $query = "SELECT*FROM add_image WHERE id = '$product_id'";
     $result = mysqli_query($connection,$query);
     if($result){
         $data = mysqli_fetch_assoc($result);
+        
         
     
         echo "<div class='product_detail_wrapper'>
@@ -472,18 +481,21 @@ if(isset($_POST["order_btn"])){
             <img src='images/$data[image]' alt=''>
         </div>
         <div class='image_details'>
+
             <p>category</p>
             <h1>$data[name]</h1>
             <h4>Rs.$data[price]</h4>
-            <form action='details.php' method='post'>
-                <input type='number' name='' id='' value='1'>
+
+            <form action='cart.php' method='post'>
+                <input type='number' name='qty' id='' value='1' min='0'>
                 <input type='hidden' name='product_id' value='$data[id]'>
-                <input type='hidden' name='product_id' value='$data[id]'>
-                <input type='hidden' name='product_id' value='$data[id]'>
-                <input type='hidden' name='product_id' value='$data[id]'>
-                <input type='hidden' name='product_id' value='$data[id]'>
+                <input type='hidden' name='product_price' value='$data[price]'>
+                <input type='hidden' name='product_name' value='$data[name]'>
+                <input type='hidden' name='product_image' value='$data[image]'>
+                
                 <button type='submit' name='cart' class='cart'>Add To Cart</button>
             </form>
+
             <p>Product Details</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptas esse cumque sunt aut ipsa
                 porro veritatis distinctio ipsam soluta vel ullam architecto sequi ut nulla, dignissimos sint eius
@@ -501,13 +513,12 @@ if(isset($_POST["order_btn"])){
     <div class="menu_grid_wrapper">
     <div class="menu_grid_box">
     <?php
-    $loop = 0;
     $query = "SELECT*FROM add_image";
     $result = mysqli_query($connection,$query);
     if($result){
         
-        while($loop<6){
-            $data = mysqli_fetch_assoc($result);
+        while($data = mysqli_fetch_assoc($result)){
+            
             echo "
             <form action='details.php' method='post'>
                         <div class='product_page_menu_item'>
@@ -521,7 +532,6 @@ if(isset($_POST["order_btn"])){
                             </div>
                     </form>
                     </div>";
-                    $loop++;
         }
     }
     
