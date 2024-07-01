@@ -1077,11 +1077,7 @@ if (isset($_POST["login"])) {
                 voluptate, amet laudantium adipisci veniam nihil quam molestiae omnis mollitia.
             </p>
             <div class="main_btn">
-<<<<<<< HEAD
                 <button><a href="product.php">Order Now</a></button>
-=======
-                <button><a href="">Order Now</a></button>
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
             </div>
     </section>
 
@@ -1112,11 +1108,7 @@ if (isset($_POST["login"])) {
         </div>
 
         <div class="menu_button">
-<<<<<<< HEAD
             <button class='menu_btn'><a href='product.php'>Shop More</a></button>
-=======
-            <button class='menu_btn'><a href='index.php'>Shop More</a></button>
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
         </div>
 
         <div class="menu_grid_wrapper">
@@ -1125,16 +1117,10 @@ if (isset($_POST["login"])) {
             <?php
             $query = "SELECT*FROM add_image";
             $result = mysqli_query($connection,$query);
-<<<<<<< HEAD
+            
             if($result){
                 while($data = mysqli_fetch_assoc($result)){
                     
-=======
-            $loop = 0;
-            if($result){
-                while($loop<6){
-                    $data = mysqli_fetch_assoc($result);
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
                     echo " <form action='product.php' method='post'>
                     <div class='home_menu_item'>
                         <img src='images/$data[image]' alt=''>
@@ -1149,11 +1135,7 @@ if (isset($_POST["login"])) {
                     </div>
                 </form>
                 ";
-<<<<<<< HEAD
-                
-=======
                 $loop++;
->>>>>>> fd582abf405db303297cfd8734b2c5392a876034
                 }
             }
             ?>
