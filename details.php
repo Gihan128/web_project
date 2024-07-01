@@ -1,5 +1,5 @@
 <?php
-require_once("inc/connection.php");
+require_once("include/connection.php");
 
 if(isset($_POST["order_btn"])){
     $product_id = $_POST['product_id'];

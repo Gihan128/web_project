@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            max-width: 1300px;
+            margin: 0 auto;
+            /* background-color: var(--primary-color); */
+        }
+
+        :root {
+            --primary-color: rgb(0, 0, 0);
+            --secondary-color: white;
+            --third-color: #fac031;
+            --fourth-color: rgba(0, 0, 0, 0.719);
+            --bg-image: url("images/2.png");
+            --box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            --gradient1: rgb(0, 0, 0);
+            --gradient2: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.9829457364341085) 0%, rgba(0, 0, 0, 1) 0%, rgba(55, 53, 53, 0.9288165949973739) 50%, rgba(0, 0, 0, 1) 100%);
+            --gradient3: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.9829457364341085) 0%, rgba(0, 0, 0, 1) 0%, rgba(55, 53, 53, 0.9288165949973739) 50%, rgba(0, 0, 0, 1) 100%);
+            --gradient4: linear-gradient(90deg, rgba(0, 0, 0, 0.9829457364341085) 0%, rgba(0, 0, 0, 1) 0%, rgba(55, 53, 53, 0.9288165949973739) 50%, rgba(0, 0, 0, 1) 100%);
+            --filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+        }
+
+        .light_mode {
+            --primary-color: white;
+            --secondary-color: black;
+            --third-color: #fac031;
+            --fourth-color: rgba(255, 255, 255, 0.795);
+            --bg-image: url("images/light_mode.png");
+            --box-shadow: 0 0 10px rgb(112, 112, 112);
+            --gradient1: white;
+            --gradient2: white;
+            --gradient3: white;
+            --gradient4: white;
+            --gradient5: white;
+            --filter: white;
+        }
+        .cart_wrapper{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-areas:
+            'product_info product_info'
+            'zero price_info';
+        }
+        .product_info{
+            grid-area: product_info;
+        }
+        .price_info{
+            grid-area: price_info;
+        }
+        .product_info table{
+            width: 100%;
+            border-collapse: collapse;
+            
+        }
+        .product_info table th{
+            background-color: #fac031;
+            height: 30px;
+        }
+
+    
+</style>
+</head>
+<body>
+    <div class="cart_wrapper">
+        <div class="product_info">
+            <table>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </table>
+        </div>
+        <div class="zero"></div>
+        <div class="price_info"></div>
+    </div>
+</body>
+</html>
