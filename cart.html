@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
         body {
             max-width: 1300px;
             margin: 0 auto;
-            /* background-color: var(--primary-color); */
+            background-color: var(--primary-color);
         }
 
         :root {
@@ -50,44 +51,192 @@
             --gradient5: white;
             --filter: white;
         }
-        .cart_wrapper{
+
+        .cart_wrapper {
             width: 100%;
             display: grid;
             grid-template-columns: 50% 50%;
             grid-template-areas:
-            'product_info product_info'
-            'zero price_info';
-        }
-        .product_info{
-            grid-area: product_info;
-        }
-        .price_info{
-            grid-area: price_info;
-        }
-        .product_info table{
-            width: 100%;
-            border-collapse: collapse;
-            
-        }
-        .product_info table th{
-            background-color: #fac031;
-            height: 30px;
+                'product_info product_info'
+                'zero price_info';
         }
 
-    
-</style>
+        .product_info {
+            grid-area: product_info;
+            height: 400px;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            margin-top: 50px;
+        }
+
+        .price_info {
+            grid-area: price_info;
+        }
+
+        .product_info table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 5px solid #fac031;
+
+        }
+
+        .product_info table th {
+            background-color: var(--primary-color);
+            height: 50px;
+            color: var(--secondary-color);
+            font-size: 20px;
+            border-bottom: 2px solid #fac031;
+        }
+
+        .product_info table td {
+            width: 30%;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+            border-bottom: 1px solid #ffffff;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+
+        .cart_item {
+            width: 200px;
+            padding-bottom: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .product_info table td p {
+            font-size: 20px;
+            color: var(--secondary-color);
+            padding: 10px;
+        }
+
+        .product_info table td img {
+            width: 150px;
+        }
+
+        .product_info table td a{
+            text-decoration: none;
+            color: red;
+        }
+        .price_info {
+            border-top: 10px solid #fac031;
+        }
+
+        .price_info table {
+            width: 100%;
+            border-left: 1px solid #fac031;
+            border-right: 1px solid #fac031;
+            border-bottom: 1px solid #fac031;
+        }
+
+        .price_info table td {
+            padding: 20px;
+            color: var(--secondary-color);
+        }
+
+        .zero {
+            border-top: 1px solid #fac031;
+        }
+        .checkout {
+            padding: 10px 30px;
+            border: none;
+            background-color: var(--third-color);
+            border-radius: 12px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .checkout a {
+            color: var(--secondary-color);
+            margin-right: 5px;
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+    </style>
 </head>
+
 <body>
     <div class="cart_wrapper">
         <div class="product_info">
             <table>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
+                <tr class="heading">
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cart_item">
+                            <img src="images/buger.jpg" alt="" width="200px">
+                            <p>burger</p>
+                            <p>Price: 100</p>
+                            <a href="">remove</a>
+                        </div>
+                    </td>
+                    <td>5</td>
+                    <td>100</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="cart_item">
+                            <img src="images/buger.jpg" alt="" width="200px">
+                            <p>burger</p>
+                            <p>100</p>
+                        </div>
+                    </td>
+                    <td>5</td>
+                    <td>100</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="cart_item">
+                            <img src="images/buger.jpg" alt="" width="200px">
+                            <p>burger</p>
+                            <p>100</p>
+                        </div>
+                    </td>
+                    <td>5</td>
+                    <td>100</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/buger.jpg" alt="">
+                        <p>burger</p>
+                        <p>100</p>
+                    </td>
+                    <td>5</td>
+                    <td>100</td>
+                </tr>
+
             </table>
         </div>
         <div class="zero"></div>
-        <div class="price_info"></div>
+        <div class="price_info">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Delivery fee</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="checkout"><a href="">checkout</a></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
+
 </html>
